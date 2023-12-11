@@ -1,14 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-public class TeleportScript : MonoBehaviour
+
+public class KillFloor : MonoBehaviour
 {
-    // Set this variable in the Unity Editor to the destination point
-    public Transform teleportDestination;
+    [SerializeField] private Transform player;
+    [SerializeField] private Transform respawn_point;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            // Teleport the player to the destination point
-            other.transform.position = teleportDestination.position;
-        }
+        player.transform.position = respawn_point.transform.position;
     }
 }
